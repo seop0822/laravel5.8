@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'welcome');
+Route::view('contact', 'contact');
+
+Route::get('/customers', function () {
+    $customers = [
+        'Ronaldo',
+        'Messi',
+        'Hazard',
+    ];
+
+    return view('internals.customers', [
+        'customers' => $customers,
+    ]);
 });
+
+Route::get('/about', function () {
+
+    return view('about');
+});
+
