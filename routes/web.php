@@ -11,20 +11,10 @@
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'home');
 Route::view('contact', 'contact');
 
-Route::get('/customers', function () {
-    $customers = [
-        'Ronaldo',
-        'Messi',
-        'Hazard',
-    ];
-
-    return view('internals.customers', [
-        'customers' => $customers,
-    ]);
-});
+Route::get('/customers', 'CustomersController@list');
 
 Route::get('/about', function () {
 
