@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Customer;
+use Illuminate\Http\Request;
+
 
 class CustomersController extends Controller
 {
@@ -18,6 +19,10 @@ class CustomersController extends Controller
 
     public function store()
     {
+        $data = request()->validate([
+            'name' => 'required|min:3'
+        ]);
+
         $customer = new Customer();
         $customer->name = request('name');
         $customer->save();
