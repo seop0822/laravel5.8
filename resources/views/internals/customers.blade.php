@@ -5,17 +5,24 @@
 
     <form action="customers" method="POST" class="pb-5">
         @csrf
-        <div class="input-group">
-            <input type="text" name="name">
+        <p>Name:</p>
+        <div class="input-group" class="pb-2" >
+            <input type="text" name="name" value="{{ old('name') }}">
+            <div>{{ $errors->first('name') }}</div>
         </div>
-        <div>{{ $errors->first('name') }}</div>
+
+        <p>Email:</p>
+        <div class="input-group">
+            <input type="text" name="email" value="{{ old('email') }}">
+            <div>{{ $errors->first('email') }}</div>
+        </div>
         <button type="submit">Add Customer</button>
     </form>
 
 
     <ul>
         @foreach ($customers as $customer)
-            <li>{{ $customer->name }}</li>
+            <li>{{ $customer->name }} <span class="text-muted">{{ $customer->email }}</span></li>
         @endforeach
     </ul>
 @endsection
