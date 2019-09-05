@@ -52,7 +52,6 @@ class CustomersController extends Controller
         $customer->update($this->validateRequest());
 
         return redirect('customers/' . $customer->id);
-
     }
 
     public function destroy(Customer $customer)
@@ -60,7 +59,7 @@ class CustomersController extends Controller
         $customer->delete();
         return redirect('customers');
     }
-
+    
     private function validateRequest()
     {
         return request()->validate([
@@ -70,4 +69,7 @@ class CustomersController extends Controller
             'company_id' => 'required'
         ]);
     }
+
+
+
 }
