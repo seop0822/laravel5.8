@@ -27,3 +27,7 @@ Route::view('about', 'about');
 Route::resource('customers', 'CustomersController');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
