@@ -1,4 +1,4 @@
-<?php
+z<?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
